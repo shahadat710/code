@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Md. Shahadat — Branch Operations Officer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0a1628;
+      --gold: #c9933a;
+      --gold-light: #e8b96a;
+      --cream: #f8f4ef;
+      --white: #ffffff;
+      --gray: #8a8f9a;
+      --light: #f0ece6;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 60px;
+      background: rgba(10, 22, 40, 0.95);
+      backdrop-filter: blur(10px);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      color: #ccc; text-decoration: none;
+      font-size: 14px; font-weight: 500; letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex; align-items: center;
+      padding: 120px 60px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -100px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(201,147,58,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: 'S';
+      position: absolute; right: 60px; bottom: -40px;
+      font-family: 'Playfair Display', serif;
+      font-size: 320px; font-weight: 900;
+      color: rgba(255,255,255,0.03);
+      line-height: 1;
+    }
+    .hero-content { max-width: 700px; position: relative; z-index: 2; }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(201,147,58,0.15);
+      border: 1px solid rgba(201,147,58,0.4);
+      color: var(--gold);
+      padding: 6px 18px; border-radius: 30px;
+      font-size: 12px; font-weight: 600; letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 28px;
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 7vw, 88px);
+      font-weight: 900; line-height: 1.05;
+      color: var(--white);
+      animation: fadeUp 0.8s 0.15s ease both;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero-title {
+      font-size: 18px; font-weight: 500;
+      color: var(--gold-light); letter-spacing: 3px;
+      text-transform: uppercase; margin: 20px 0 28px;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+    .hero-desc {
+      font-size: 16px; line-height: 1.8;
+      color: #9aa3b0; max-width: 540px;
+      animation: fadeUp 0.8s 0.45s ease both;
+    }
+    .hero-btns {
+      display: flex; gap: 16px; margin-top: 44px; flex-wrap: wrap;
+      animation: fadeUp 0.8s 0.6s ease both;
+    }
+    .btn-primary {
+      background: var(--gold); color: var(--navy);
+      padding: 14px 36px; border-radius: 4px;
+      font-weight: 700; font-size: 14px; letter-spacing: 1px;
+      text-decoration: none; text-transform: uppercase;
+      transition: all 0.3s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.25); color: var(--white);
+      padding: 14px 36px; border-radius: 4px;
+      font-weight: 500; font-size: 14px; letter-spacing: 1px;
+      text-decoration: none; text-transform: uppercase;
+      transition: all 0.3s;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-stats {
+      display: flex; gap: 50px; margin-top: 60px;
+      animation: fadeUp 0.8s 0.75s ease both;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px; font-weight: 900;
+      color: var(--gold); line-height: 1;
+    }
+    .stat-label { font-size: 12px; color: #666; letter-spacing: 1px; margin-top: 4px; text-transform: uppercase; }
+
+    /* ABOUT */
+    .section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      font-size: 12px; font-weight: 600; letter-spacing: 3px;
+      color: var(--gold); text-transform: uppercase; margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700; line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-box {
+      background: var(--navy);
+      border-radius: 8px; overflow: hidden;
+      aspect-ratio: 4/5;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-img-box img { width: 100%; height: 100%; object-fit: cover; }
+    .about-img-placeholder {
+      font-family: 'Playfair Display', serif;
+      font-size: 120px; font-weight: 900;
+      color: rgba(201,147,58,0.2);
+    }
+    .about-img-accent {
+      position: absolute; bottom: -20px; right: -20px;
+      width: 160px; height: 160px;
+      border: 3px solid var(--gold);
+      border-radius: 8px; z-index: -1;
+    }
+    .about-text p {
+      font-size: 16px; line-height: 1.9; color: #555;
+      margin-bottom: 20px;
+    }
+    .about-info { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+    .info-item { }
+    .info-label { font-size: 11px; color: var(--gray); letter-spacing: 1px; text-transform: uppercase; }
+    .info-val { font-size: 14px; font-weight: 600; color: var(--navy); margin-top: 3px; }
+
+    /* EXPERIENCE */
+    .exp-section { background: var(--navy); padding: 100px 0; }
+    .exp-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+    .exp-section .section-title { color: var(--white); }
+    .exp-section .section-label { color: var(--gold); }
+
+    .timeline { margin-top: 60px; position: relative; }
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 2px; background: rgba(201,147,58,0.3);
+    }
+    .timeline-item {
+      padding-left: 48px; margin-bottom: 56px; position: relative;
+    }
+    .timeline-dot {
+      position: absolute; left: -8px; top: 6px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--gold); border: 3px solid var(--navy);
+    }
+    .timeline-period {
+      font-size: 12px; color: var(--gold); font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px;
+    }
+    .timeline-role {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px; font-weight: 700; color: var(--white);
+      margin-bottom: 4px;
+    }
+    .timeline-company {
+      font-size: 14px; color: #9aa3b0; margin-bottom: 20px;
+    }
+    .timeline-list { list-style: none; }
+    .timeline-list li {
+      font-size: 14px; color: #8a93a0; line-height: 1.7;
+      padding-left: 20px; position: relative; margin-bottom: 8px;
+    }
+    .timeline-list li::before {
+      content: '—'; position: absolute; left: 0; color: var(--gold); font-weight: 700;
+    }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 60px; }
+    .skill-card {
+      background: var(--white);
+      border: 1px solid #e8e0d6;
+      border-radius: 8px; padding: 28px;
+      transition: all 0.3s;
+    }
+    .skill-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+    .skill-icon { font-size: 28px; margin-bottom: 14px; }
+    .skill-name { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .skill-bar-wrap { background: #f0ece6; border-radius: 3px; height: 4px; }
+    .skill-bar { height: 4px; border-radius: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+
+    /* ACHIEVEMENTS */
+    .ach-section { background: var(--light); padding: 100px 0; }
+    .ach-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+    .ach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 60px; }
+    .ach-card {
+      background: var(--white); border-radius: 8px; padding: 32px;
+      border-left: 4px solid var(--gold);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    .ach-emoji { font-size: 32px; margin-bottom: 16px; }
+    .ach-text { font-size: 15px; line-height: 1.7; color: #555; }
+
+    /* CONTACT */
+    .contact-section { background: var(--navy); padding: 100px 0; }
+    .contact-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+    .contact-section .section-title { color: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 60px; align-items: start; }
+    .contact-item { display: flex; align-items: center; gap: 20px; margin-bottom: 32px; }
+    .contact-icon {
+      width: 52px; height: 52px; border-radius: 8px;
+      background: rgba(201,147,58,0.15); border: 1px solid rgba(201,147,58,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+    }
+    .contact-label { font-size: 12px; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; }
+    .contact-val { font-size: 15px; color: var(--white); font-weight: 500; margin-top: 3px; }
+    .contact-val a { color: var(--gold); text-decoration: none; }
+
+    .lang-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .lang-item { }
+    .lang-name { font-size: 14px; color: var(--white); font-weight: 600; margin-bottom: 6px; }
+    .lang-level { font-size: 12px; color: var(--gray); }
+    .lang-dots { display: flex; gap: 4px; margin-top: 6px; }
+    .lang-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(201,147,58,0.3); }
+    .lang-dot.filled { background: var(--gold); }
+
+    /* FOOTER */
+    footer {
+      background: #060f1e; padding: 30px 60px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    footer p { font-size: 13px; color: #555; }
+    footer span { color: var(--gold); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hero { padding: 100px 24px 60px; }
+      .hero::after { display: none; }
+      .hero-stats { gap: 30px; }
+      .section { padding: 60px 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-img-wrap { display: none; }
+      .exp-inner, .ach-inner, .contact-inner { padding: 0 24px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      footer { flex-direction: column; gap: 10px; padding: 24px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">MS.</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Available for Opportunities</div>
+    <h1>Md.<br><span>Shahadat</span></h1>
+    <p class="hero-title">Branch Operations Officer</p>
+    <p class="hero-desc">Dedicated operations professional with over 5 years of experience in branch operations, cash management, customer service, and team leadership in the UAE.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get In Touch</a>
+      <a href="#experience" class="btn-outline">View Experience</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Team Members Led</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Cash Discrepancies</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section">
+    <div class="about-grid">
+      <div class="about-img-wrap fade-in">
+        <div class="about-img-box">
+          <div class="about-img-placeholder">MS</div>
+        </div>
+        <div class="about-img-accent"></div>
+      </div>
+      <div class="about-text fade-in">
+        <p class="section-label">About Me</p>
+        <h2 class="section-title">Operations Professional Based in Dubai, UAE</h2>
+        <p>I am a results-driven operations professional with a strong track record in branch management, cash handling, and team leadership. My expertise spans across inventory management, POS systems, and financial reporting.</p>
+        <p>With a Bachelor's degree in QSIS from International Islamic University, Chittagong, I combine academic knowledge with hands-on experience to deliver operational excellence.</p>
+        <div class="about-info">
+          <div class="info-item">
+            <div class="info-label">Location</div>
+            <div class="info-val">International City, Dubai, UAE</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Nationality</div>
+            <div class="info-val">Bangladeshi</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Date of Birth</div>
+            <div class="info-val">15 February 1997</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Education</div>
+            <div class="info-val">B.Sc (Hons) in QSIS</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="exp-section">
+  <div class="exp-inner">
+    <p class="section-label">Career History</p>
+    <h2 class="section-title">Professional Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">2020 — Present</div>
+        <div class="timeline-role">Retail Business Manager</div>
+        <div class="timeline-company">Fresh Garden Foodstuff Trading LLC, Dubai, UAE</div>
+        <ul class="timeline-list">
+          <li>Managed all daily branch operations including cash handling, POS reconciliation, and financial reporting with 100% accuracy.</li>
+          <li>Led and developed a team of 10+ staff members through coaching, scheduling, and performance evaluations.</li>
+          <li>Oversaw full inventory lifecycle: procurement planning, stock audits, shrinkage control, and supplier coordination.</li>
+          <li>Maintained strong supplier and customer relationships while negotiating pricing terms.</li>
+          <li>Prepared daily and monthly reports on sales, expenses, and stock status.</li>
+          <li>Utilized Microsoft Excel and digital POS systems for daily sales reporting and trend analysis.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section">
+    <p class="section-label">What I Do</p>
+    <h2 class="section-title">Skills & Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill-card fade-in">
+        <div class="skill-icon">🏦</div>
+        <div class="skill-name">Branch Operations</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">💰</div>
+        <div class="skill-name">Cash Handling & Reconciliation</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:98%"></div></div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">🖥️</div>
+        <div class="skill-name">POS & Transaction Processing</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">👥</div>
+        <div class="skill-name">Team Leadership & Supervision</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">📦</div>
+        <div class="skill-name">Inventory & Stock Control</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">📊</div>
+        <div class="skill-name">Microsoft Excel (Advanced)</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">🤝</div>
+        <div class="skill-name">Customer Service Excellence</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">📋</div>
+        <div class="skill-name">Reporting & Documentation</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="ach-section">
+  <div class="ach-inner">
+    <p class="section-label">Key Highlights</p>
+    <h2 class="section-title">Achievements</h2>
+    <div class="ach-grid">
+      <div class="ach-card fade-in">
+        <div class="ach-emoji">🏆</div>
+        <div class="ach-text">Maintained <strong>zero cash discrepancy</strong> record for 2+ consecutive years across high-volume daily transactions.</div>
+      </div>
+      <div class="ach-card fade-in">
+        <div class="ach-emoji">📉</div>
+        <div class="ach-text">Reduced inventory shrinkage by <strong>20%</strong> through structured stock control and systematic auditing processes.</div>
+      </div>
+      <div class="ach-card fade-in">
+        <div class="ach-emoji">⭐</div>
+        <div class="ach-text">Recognized by senior management for <strong>exceptional customer satisfaction</strong> and outstanding operational discipline.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section">
+    <p class="section-label">My Work</p>
+    <h2 class="section-title">Web Projects</h2>
+    <div class="skills-grid">
+      <div class="skill-card fade-in" style="text-align:center">
+        <div class="skill-icon">🚬</div>
+        <div class="skill-name" style="margin-bottom:10px">Cigarette Stock Tracker</div>
+        <p style="font-size:13px;color:var(--gray);margin-bottom:16px">Stock management app for cigarette brands with sales tracking.</p>
+        <a href="https://shahadat710.vercel.app" target="_blank" style="background:var(--gold);color:#fff;padding:8px 20px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;">View Project →</a>
+      </div>
+      <div class="skill-card fade-in" style="text-align:center">
+        <div class="skill-icon">🌿</div>
+        <div class="skill-name" style="margin-bottom:10px">Fresh Garden</div>
+        <p style="font-size:13px;color:var(--gray);margin-bottom:16px">Online general store for fresh groceries and daily essentials in Dubai.</p>
+        <a href="https://fresh-garden-seven.vercel.app" target="_blank" style="background:var(--gold);color:#fff;padding:8px 20px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;">View Project →</a>
+      </div>
+      <div class="skill-card fade-in" style="text-align:center">
+        <div class="skill-icon">💻</div>
+        <div class="skill-name" style="margin-bottom:10px">GitHub Profile</div>
+        <p style="font-size:13px;color:var(--gray);margin-bottom:16px">All my open source projects and code repositories on GitHub.</p>
+        <a href="https://github.com/shahadat710" target="_blank" style="background:var(--gold);color:#fff;padding:8px 20px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;">View GitHub →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="contact-inner">
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title">Contact Me</h2>
+    <div class="contact-grid">
+      <div class="fade-in">
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">Phone</div>
+            <div class="contact-val">+971 56 136 2598</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-val"><a href="mailto:saadat287@gmail.com">saadat287@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Location</div>
+            <div class="contact-val">International City, Dubai, UAE</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">💼</div>
+          <div>
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-val"><a href="https://linkedin.com/in/md-shahadat-a735a94bb" target="_blank">md-shahadat-a735a94bb</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in">
+        <p class="section-label">Languages</p>
+        <div class="lang-grid" style="margin-top:20px">
+          <div class="lang-item">
+            <div class="lang-name">English</div>
+            <div class="lang-level">Professional</div>
+            <div class="lang-dots">
+              <div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot"></div>
+            </div>
+          </div>
+          <div class="lang-item">
+            <div class="lang-name">Bengali</div>
+            <div class="lang-level">Native</div>
+            <div class="lang-dots">
+              <div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div>
+            </div>
+          </div>
+          <div class="lang-item">
+            <div class="lang-name">Hindi</div>
+            <div class="lang-level">Fluent</div>
+            <div class="lang-dots">
+              <div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot"></div>
+            </div>
+          </div>
+          <div class="lang-item">
+            <div class="lang-name">Urdu</div>
+            <div class="lang-level">Conversational</div>
+            <div class="lang-dots">
+              <div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot"></div><div class="lang-dot"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>Md. Shahadat</span>. All rights reserved.</p>
+  <p>Branch Operations Officer · Dubai, UAE</p>
+</footer>
+
+<script>
+  // Scroll animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
