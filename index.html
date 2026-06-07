@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Md. Shahadat — Branch Operations Officer</title>
+  <title>Md. Shahadat — Operations & Web App Developer</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -15,19 +15,14 @@
       --gray: #8a8f9a;
       --light: #f0ece6;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
-
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--cream);
       color: var(--navy);
       overflow-x: hidden;
     }
-
-    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; justify-content: space-between; align-items: center;
@@ -49,8 +44,6 @@
       transition: color 0.3s;
     }
     .nav-links a:hover { color: var(--gold); }
-
-    /* HERO */
     .hero {
       min-height: 100vh;
       background: var(--navy);
@@ -123,7 +116,6 @@
       transition: all 0.3s;
     }
     .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-
     .hero-stats {
       display: flex; gap: 50px; margin-top: 60px;
       animation: fadeUp 0.8s 0.75s ease both;
@@ -135,8 +127,6 @@
       color: var(--gold); line-height: 1;
     }
     .stat-label { font-size: 12px; color: #666; letter-spacing: 1px; margin-top: 4px; text-transform: uppercase; }
-
-    /* ABOUT */
     .section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
     .section-label {
       font-size: 12px; font-weight: 600; letter-spacing: 3px;
@@ -148,18 +138,14 @@
       font-weight: 700; line-height: 1.2;
       margin-bottom: 24px;
     }
-
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .about-img-wrap {
-      position: relative;
-    }
+    .about-img-wrap { position: relative; }
     .about-img-box {
       background: var(--navy);
       border-radius: 8px; overflow: hidden;
       aspect-ratio: 4/5;
       display: flex; align-items: center; justify-content: center;
     }
-    .about-img-box img { width: 100%; height: 100%; object-fit: cover; }
     .about-img-placeholder {
       font-family: 'Playfair Display', serif;
       font-size: 120px; font-weight: 900;
@@ -176,51 +162,31 @@
       margin-bottom: 20px;
     }
     .about-info { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
-    .info-item { }
     .info-label { font-size: 11px; color: var(--gray); letter-spacing: 1px; text-transform: uppercase; }
     .info-val { font-size: 14px; font-weight: 600; color: var(--navy); margin-top: 3px; }
-
-    /* EXPERIENCE */
     .exp-section { background: var(--navy); padding: 100px 0; }
     .exp-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
     .exp-section .section-title { color: var(--white); }
-    .exp-section .section-label { color: var(--gold); }
-
     .timeline { margin-top: 60px; position: relative; }
     .timeline::before {
       content: ''; position: absolute; left: 0; top: 0; bottom: 0;
       width: 2px; background: rgba(201,147,58,0.3);
     }
-    .timeline-item {
-      padding-left: 48px; margin-bottom: 56px; position: relative;
-    }
+    .timeline-item { padding-left: 48px; margin-bottom: 56px; position: relative; }
     .timeline-dot {
       position: absolute; left: -8px; top: 6px;
       width: 18px; height: 18px; border-radius: 50%;
       background: var(--gold); border: 3px solid var(--navy);
     }
-    .timeline-period {
-      font-size: 12px; color: var(--gold); font-weight: 600;
-      letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px;
-    }
-    .timeline-role {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px; font-weight: 700; color: var(--white);
-      margin-bottom: 4px;
-    }
-    .timeline-company {
-      font-size: 14px; color: #9aa3b0; margin-bottom: 20px;
-    }
+    .timeline-period { font-size: 12px; color: var(--gold); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+    .timeline-role { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+    .timeline-company { font-size: 14px; color: #9aa3b0; margin-bottom: 20px; }
     .timeline-list { list-style: none; }
     .timeline-list li {
       font-size: 14px; color: #8a93a0; line-height: 1.7;
       padding-left: 20px; position: relative; margin-bottom: 8px;
     }
-    .timeline-list li::before {
-      content: '—'; position: absolute; left: 0; color: var(--gold); font-weight: 700;
-    }
-
-    /* SKILLS */
+    .timeline-list li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 60px; }
     .skill-card {
       background: var(--white);
@@ -234,7 +200,47 @@
     .skill-bar-wrap { background: #f0ece6; border-radius: 3px; height: 4px; }
     .skill-bar { height: 4px; border-radius: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
 
-    /* ACHIEVEMENTS */
+    /* PROJECTS SECTION */
+    .projects-section { background: var(--navy); padding: 100px 0; }
+    .projects-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+    .projects-section .section-title { color: var(--white); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-top: 60px; }
+    .project-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,147,58,0.2);
+      border-radius: 12px; overflow: hidden;
+      transition: all 0.3s;
+    }
+    .project-card:hover { border-color: var(--gold); transform: translateY(-6px); box-shadow: 0 24px 48px rgba(0,0,0,0.3); }
+    .project-img {
+      height: 180px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 60px;
+    }
+    .project-body { padding: 24px; }
+    .project-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+    .project-tag {
+      background: rgba(201,147,58,0.15);
+      border: 1px solid rgba(201,147,58,0.3);
+      color: var(--gold);
+      padding: 3px 10px; border-radius: 20px;
+      font-size: 11px; font-weight: 600; letter-spacing: 1px;
+    }
+    .project-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .project-desc { font-size: 14px; color: #8a93a0; line-height: 1.7; margin-bottom: 20px; }
+    .project-features { list-style: none; margin-bottom: 20px; }
+    .project-features li { font-size: 13px; color: #7a8390; padding-left: 16px; position: relative; margin-bottom: 5px; }
+    .project-features li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+    .project-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold); color: var(--navy);
+      padding: 10px 22px; border-radius: 4px;
+      font-size: 13px; font-weight: 700; text-decoration: none;
+      text-transform: uppercase; letter-spacing: 1px;
+      transition: all 0.3s;
+    }
+    .project-link:hover { background: var(--gold-light); }
+
     .ach-section { background: var(--light); padding: 100px 0; }
     .ach-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
     .ach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 60px; }
@@ -245,8 +251,6 @@
     }
     .ach-emoji { font-size: 32px; margin-bottom: 16px; }
     .ach-text { font-size: 15px; line-height: 1.7; color: #555; }
-
-    /* CONTACT */
     .contact-section { background: var(--navy); padding: 100px 0; }
     .contact-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
     .contact-section .section-title { color: var(--white); }
@@ -261,33 +265,24 @@
     .contact-label { font-size: 12px; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; }
     .contact-val { font-size: 15px; color: var(--white); font-weight: 500; margin-top: 3px; }
     .contact-val a { color: var(--gold); text-decoration: none; }
-
     .lang-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .lang-item { }
     .lang-name { font-size: 14px; color: var(--white); font-weight: 600; margin-bottom: 6px; }
     .lang-level { font-size: 12px; color: var(--gray); }
     .lang-dots { display: flex; gap: 4px; margin-top: 6px; }
     .lang-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(201,147,58,0.3); }
     .lang-dot.filled { background: var(--gold); }
-
-    /* FOOTER */
     footer {
       background: #060f1e; padding: 30px 60px;
       display: flex; justify-content: space-between; align-items: center;
     }
     footer p { font-size: 13px; color: #555; }
     footer span { color: var(--gold); }
-
-    /* ANIMATIONS */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.7s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-    /* MOBILE */
     @media (max-width: 768px) {
       nav { padding: 16px 24px; }
       .nav-links { display: none; }
@@ -297,35 +292,33 @@
       .section { padding: 60px 24px; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .about-img-wrap { display: none; }
-      .exp-inner, .ach-inner, .contact-inner { padding: 0 24px; }
+      .exp-inner, .ach-inner, .contact-inner, .projects-inner { padding: 0 24px; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
       footer { flex-direction: column; gap: 10px; padding: 24px; text-align: center; }
     }
   </style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav>
   <div class="nav-logo">MS.</div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <div class="hero-tag">Available for Opportunities</div>
     <h1>Md.<br><span>Shahadat</span></h1>
-    <p class="hero-title">Branch Operations Officer</p>
-    <p class="hero-desc">Dedicated operations professional with over 5 years of experience in branch operations, cash management, customer service, and team leadership in the UAE.</p>
+    <p class="hero-title">Operations Manager & Web App Developer</p>
+    <p class="hero-desc">Retail operations professional with 5+ years experience in the UAE, now building custom web apps and PWA solutions for businesses using Firebase and JavaScript.</p>
     <div class="hero-btns">
-      <a href="#contact" class="btn-primary">Get In Touch</a>
-      <a href="#experience" class="btn-outline">View Experience</a>
+      <a href="#projects" class="btn-primary">View My Apps</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
     </div>
     <div class="hero-stats">
       <div class="stat-item">
@@ -333,8 +326,8 @@
         <div class="stat-label">Years Experience</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">10+</div>
-        <div class="stat-label">Team Members Led</div>
+        <div class="stat-num">2</div>
+        <div class="stat-label">Live Apps Built</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">0</div>
@@ -344,7 +337,6 @@
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="section">
     <div class="about-grid">
@@ -356,9 +348,9 @@
       </div>
       <div class="about-text fade-in">
         <p class="section-label">About Me</p>
-        <h2 class="section-title">Operations Professional Based in Dubai, UAE</h2>
+        <h2 class="section-title">Operations & Tech Professional in Dubai, UAE</h2>
         <p>I am a results-driven operations professional with a strong track record in branch management, cash handling, and team leadership. My expertise spans across inventory management, POS systems, and financial reporting.</p>
-        <p>With a Bachelor's degree in QSIS from International Islamic University, Chittagong, I combine academic knowledge with hands-on experience to deliver operational excellence.</p>
+        <p>Recently I have expanded into web app development — building real business tools using HTML, JavaScript, Firebase, and PWA technology. I build apps I actually use in my own business.</p>
         <div class="about-info">
           <div class="info-item">
             <div class="info-label">Location</div>
@@ -382,7 +374,6 @@
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience" class="exp-section">
   <div class="exp-inner">
     <p class="section-label">Career History</p>
@@ -398,15 +389,66 @@
           <li>Led and developed a team of 10+ staff members through coaching, scheduling, and performance evaluations.</li>
           <li>Oversaw full inventory lifecycle: procurement planning, stock audits, shrinkage control, and supplier coordination.</li>
           <li>Maintained strong supplier and customer relationships while negotiating pricing terms.</li>
-          <li>Prepared daily and monthly reports on sales, expenses, and stock status.</li>
-          <li>Utilized Microsoft Excel and digital POS systems for daily sales reporting and trend analysis.</li>
+          <li>Built custom web apps for internal business use — salary tracker and stock management system.</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
+<!-- PROJECTS -->
+<section id="projects" class="projects-section">
+  <div class="projects-inner">
+    <p class="section-label">My Work</p>
+    <h2 class="section-title">Live Web Apps</h2>
+    <div class="projects-grid">
+
+      <div class="project-card fade-in">
+        <div class="project-img" style="background:linear-gradient(135deg,#0A1628,#1E3A5F);">💼</div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="project-tag">Firebase</span>
+            <span class="project-tag">PWA</span>
+            <span class="project-tag">JavaScript</span>
+          </div>
+          <div class="project-title">Salary Tracker</div>
+          <div class="project-desc">A complete staff salary management web app built for real business use. Installable on any phone like a native app.</div>
+          <ul class="project-features">
+            <li>Staff profiles with photo upload</li>
+            <li>Monthly salary records & advance tracking</li>
+            <li>Charts, CSV export & WhatsApp sharing</li>
+            <li>Firebase real-time sync across all devices</li>
+            <li>PWA — works offline, installable on mobile</li>
+          </ul>
+          <a href="https://salary-tracker-a2483.web.app" target="_blank" class="project-link">View Live App →</a>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-img" style="background:linear-gradient(135deg,#1A0A05,#3D1A0A);">🚬</div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="project-tag">Firebase</span>
+            <span class="project-tag">PWA</span>
+            <span class="project-tag">JavaScript</span>
+          </div>
+          <div class="project-title">Cigarette Stock Tracker</div>
+          <div class="project-desc">A full inventory management system for cigarette stock tracking, sales logging, and supplier management.</div>
+          <ul class="project-features">
+            <li>Brand-wise stock management</li>
+            <li>Sales & purchase log with history</li>
+            <li>Low stock alerts & restock notifications</li>
+            <li>Sales charts & daily summary</li>
+            <li>PWA — works offline, installable on mobile</li>
+          </ul>
+          <a href="https://cig-tracker-ce693.web.app" target="_blank" class="project-link">View Live App →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <section id="skills">
   <div class="section">
     <p class="section-label">What I Do</p>
@@ -423,14 +465,19 @@
         <div class="skill-bar-wrap"><div class="skill-bar" style="width:98%"></div></div>
       </div>
       <div class="skill-card fade-in">
-        <div class="skill-icon">🖥️</div>
-        <div class="skill-name">POS & Transaction Processing</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
+        <div class="skill-icon">🌐</div>
+        <div class="skill-name">Web App Development (HTML/JS)</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
       </div>
       <div class="skill-card fade-in">
-        <div class="skill-icon">👥</div>
-        <div class="skill-name">Team Leadership & Supervision</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
+        <div class="skill-icon">🔥</div>
+        <div class="skill-name">Firebase & Real-time Database</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">📱</div>
+        <div class="skill-name">PWA Development</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div>
       </div>
       <div class="skill-card fade-in">
         <div class="skill-icon">📦</div>
@@ -438,25 +485,19 @@
         <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div>
       </div>
       <div class="skill-card fade-in">
+        <div class="skill-icon">👥</div>
+        <div class="skill-name">Team Leadership & Supervision</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
+      </div>
+      <div class="skill-card fade-in">
         <div class="skill-icon">📊</div>
         <div class="skill-name">Microsoft Excel (Advanced)</div>
         <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
-      </div>
-      <div class="skill-card fade-in">
-        <div class="skill-icon">🤝</div>
-        <div class="skill-name">Customer Service Excellence</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
-      </div>
-      <div class="skill-card fade-in">
-        <div class="skill-icon">📋</div>
-        <div class="skill-name">Reporting & Documentation</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ACHIEVEMENTS -->
 <section class="ach-section">
   <div class="ach-inner">
     <p class="section-label">Key Highlights</p>
@@ -467,18 +508,17 @@
         <div class="ach-text">Maintained <strong>zero cash discrepancy</strong> record for 2+ consecutive years across high-volume daily transactions.</div>
       </div>
       <div class="ach-card fade-in">
-        <div class="ach-emoji">📉</div>
-        <div class="ach-text">Reduced inventory shrinkage by <strong>20%</strong> through structured stock control and systematic auditing processes.</div>
+        <div class="ach-emoji">📱</div>
+        <div class="ach-text">Built and deployed <strong>2 live PWA web apps</strong> used in real business operations — salary tracking and inventory management.</div>
       </div>
       <div class="ach-card fade-in">
-        <div class="ach-emoji">⭐</div>
-        <div class="ach-text">Recognized by senior management for <strong>exceptional customer satisfaction</strong> and outstanding operational discipline.</div>
+        <div class="ach-emoji">📉</div>
+        <div class="ach-text">Reduced inventory shrinkage by <strong>20%</strong> through structured stock control and systematic auditing processes.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="contact-section">
   <div class="contact-inner">
     <p class="section-label">Get In Touch</p>
@@ -489,7 +529,7 @@
           <div class="contact-icon">📞</div>
           <div>
             <div class="contact-label">Phone</div>
-            <div class="contact-val">+971 56 136 2598</div>
+            <div class="contact-val">+971 56 182 6598</div>
           </div>
         </div>
         <div class="contact-item">
@@ -508,6 +548,13 @@
         </div>
         <div class="contact-item">
           <div class="contact-icon">💼</div>
+          <div>
+            <div class="contact-label">Fiverr</div>
+            <div class="contact-val"><a href="https://www.fiverr.com/mdshahadat710" target="_blank">fiverr.com/mdshahadat710</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🔗</div>
           <div>
             <div class="contact-label">LinkedIn</div>
             <div class="contact-val"><a href="https://linkedin.com/in/md-shahadat-a735a94bb" target="_blank">md-shahadat-a735a94bb</a></div>
@@ -551,19 +598,16 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <p>© 2026 <span>Md. Shahadat</span>. All rights reserved.</p>
-  <p>Branch Operations Officer · Dubai, UAE</p>
+  <p>Operations Manager & Web App Developer · Dubai, UAE</p>
 </footer>
 
 <script>
-  // Scroll animation
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
-
 </body>
 </html>
